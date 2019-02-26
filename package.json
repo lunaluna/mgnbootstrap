@@ -1,34 +1,43 @@
 {
   "name": "mgn_bootstrap",
-  "version": "1.0.0",
-  "description": "mgnでbootstrapをやるときはこれをつかうよ！",
+  "version": "1.0.1",
+  "description": "mgnでbootstrapをベースにテーマ作るときはこれをつかうよ！",
   "main": "index.js",
   "scripts": {
-    "build": "npm-run-all css-compile css-prefix css-minify",
-    "css-compile": "node-sass --importer node_modules/node-sass-globbing/index.js --output-style expanded --source-map true --source-map-contents true --precision 6 src/style.scss dist/css/style.css",
+    "imagemin-png": "imagemin src/img/*.png --plugin=pngquant --out-dir=dist/img",
+    "imagemin-jpg": "imagemin src/img/*.jpg --plugin=jpeg-recompress --out-dir=dist/img",
+    "imagemin-svg": "imagemin src/img/*.svg --plugin=svgo --out-dir=dist/img --disable=removeViewBox",
+    "imagemin-gif": "imagemin src/img/*.gif --out-dir=dist/img",
+    "imagemin-all": "npm run imagemin-png & npm run imagemin-jpg & npm run imagemin-svg & npm run imagemin-gif",
+    "build": "npm-run-all css-compile css-prefix css-minify imagemin-all uglify",
+    "css-compile": "node-sass --importer node_modules/node-sass-glob-importer/dist/index.js --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/style.scss dist/css/style.css",
     "css-prefix": "postcss --config src/postcss.config.js --replace dist/css/*.css",
     "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/style.min.css dist/css/style.css",
-    "serve": "browser-sync start --server --serveStatic dist --files 'dist/css/*.css, dist/scripts/*.js, *.html'",
-    "watch": "npm run serve & watch 'npm run css-compile' ./src"
+    "uglify": "uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
+    "watch": "watch 'npm run css-compile & npm run imagemin-all & npm run uglify' ./src"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/{まだURLはないよ！}"
   },
-  "author": "",
-  "license": "GLP",
+  "author": "megane9988",
+  "license": "GPL+2.0",
   "homepage": "https://www.m-g-n.me",
   "dependencies": {
-    "autoprefixer": "^7.2.5",
-    "bootstrap": "^4.1.0",
-    "clean-css-cli": "^4.1.10",
-    "jquery": "^1.9.1",
-    "node-sass": "^4.9.0",
-    "npm-run-all": "^4.1.2",
+    "autoprefixer": "^9.4.9",
+    "bootstrap": "^4.3.1",
+    "clean-css-cli": "^4.2.1",
+    "imagemin-cli": "^4.0.0",
+    "imagemin-jpeg-recompress": "^6.0.0",
+    "imagemin-keep-folder": "^5.3.2",
+    "imagemin-pngquant": "^7.0.0",
+    "imagemin-svgo": "^7.0.0",
+    "node-sass": "^4.11.0",
+    "node-sass-glob-importer": "^5.3.0",
+    "npm-run-all": "^4.1.5",
     "popper.js": "^1.14.3",
-    "postcss-cli": "^4.1.1",
-    "watch": "1.0.2",
-    "browser-sync": "^2.24.4",
-    "node-sass-globbing": "0.0.23"
+    "postcss-cli": "^6.1.2",
+    "uglify-js": "^3.4.9",
+    "watch": "1.0.2"
   }
 }

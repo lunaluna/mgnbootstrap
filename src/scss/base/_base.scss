@@ -1,0 +1,40 @@
+// box-sizing
+* {
+  box-sizing: border-box;
+}
+
+//FOCUS
+*:focus {
+  // outline: none;
+}
+
+body {
+  font-family: 'ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;
+}
+
+// image
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// list
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+// table
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+// wp need
+.screen-reader-text {
+  display: none;
+}
+
+embed, iframe, object {
+  max-width: 100%;
+}

@@ -1,0 +1,11 @@
+@charset 'utf-8';
+
+.siteHeader {
+  color: #fff;
+  background-color: #0cc; // $drecata_blue
+  @mixin media(md) {
+    margin-bottom: 20px;
+    padding: 0;
+    border: none;
+  }
+}

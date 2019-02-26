@@ -1,0 +1,12 @@
+@charset 'utf-8';
+
+.breadcrumbs {
+  display: none;
+  @mixin media(md) {
+    display: block;
+    @include centerContent;
+    padding: 0 10px;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+}

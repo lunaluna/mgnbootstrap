@@ -1,0 +1,58 @@
+@charset 'utf-8';
+
+.btn{
+  display: inline-block;
+  background-color: $drenavi-blue;
+  color: #FFF;
+  text-align: center;
+  padding: 10px 0;
+  &:hover{
+    background-color: #000;
+  }
+  &.expand{
+    display: block;
+  }
+  &.btn__more{
+    margin: 10px;
+    background-color: red;
+  }
+  &.light{
+    background-color: #e0e0e0;
+  }
+  &.dark{
+    color: #FFF;
+    &:hover{
+      background-color: #000;
+    }
+  }
+  &.morelight{
+    background-color: #FFFFFF;
+    border: 2px solid $drenavi-blue;
+    &:hover{
+      background-color: #FFFFFF;
+      border: 2px  solid rgba(0,0,0,0.5);
+    }
+  }
+  &.sep{
+    margin: 2px;
+  }
+  &.radius{
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+  }
+  &.half{
+    font-size: 12px;
+    @mixin media(md) {
+      max-width: 50%;
+      font-size: 14px;
+    }
+    margin: 10px auto 20px auto;
+    display: block;
+  }
+  &.read_more {
+    @media (min-width: 769px) {
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+}
