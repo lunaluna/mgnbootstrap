@@ -10,11 +10,18 @@
 
 ## 作業中のコマンド
 ```
-npm run watch
+$ npm run watch
 
-SassファイルおよびHTMLファイルをWatchし、変更があれば、ブラウザを更新します。
+scssファイルおよびjsファイル、画像ファイルをWatchし、変更があればコンパイル・圧縮します。
 
-最終的にdist/css/app.cssに書き出されます。
+最終的に `dist` ディレクトリ以下に書き出されます。
+```
+
+```
+$ npm run serve
+
+`http://localhost:3000` でサーバを立ち上げます。
+`dist` ディレクトリ配下のcssファイルおよびjsファイル、画像ファイルを監視し、変更があればブラウザをリロードします。
 ```
 
 
@@ -23,4 +30,6 @@ SassファイルおよびHTMLファイルをWatchし、変更があれば、ブ�
 npm run build
 
 dist/css/app.min.cssを書き出します。
+
+【環境 検討中】
 ```

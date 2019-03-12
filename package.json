@@ -1,6 +1,6 @@
 {
   "name": "mgn_bootstrap",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "mgnでbootstrapをベースにテーマ作るときはこれをつかうよ！",
   "main": "index.js",
   "scripts": {
@@ -14,6 +14,7 @@
     "css-prefix": "postcss --config src/postcss.config.js --replace dist/css/*.css",
     "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/style.min.css dist/css/style.css",
     "uglify": "uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
+    "serve": "node dev/js/server.js",
     "watch": "watch 'npm run css-compile & npm run imagemin-all & npm run uglify' ./src"
   },
   "repository": {
@@ -39,5 +40,8 @@
     "postcss-cli": "^6.1.2",
     "uglify-js": "^3.4.9",
     "watch": "1.0.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.3"
   }
 }
