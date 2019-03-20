@@ -1,6 +1,6 @@
 {
   "name": "mgn_bootstrap",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "mgnでbootstrapをベースにテーマ作るときはこれをつかうよ！",
   "main": "index.js",
   "scripts": {
@@ -9,13 +9,12 @@
     "imagemin-svg": "imagemin src/img/**/*.svg --plugin=svgo --out-dir=dist/img --disable=removeViewBox",
     "imagemin-gif": "imagemin src/img/**/*.gif --out-dir=dist/img",
     "imagemin-all": "npm run imagemin-png & npm run imagemin-jpg & npm run imagemin-svg & npm run imagemin-gif",
-    "build": "npm-run-all css-compile css-prefix css-minify imagemin-all uglify",
     "css-compile": "node-sass --importer node_modules/node-sass-glob-importer/dist/cli.js --output-style expanded --source-map true --source-map-contents true --precision 6 src/scss/style.scss dist/css/style.css",
     "css-prefix": "postcss --config src/postcss.config.js --replace dist/css/*.css",
     "css-minify": "cleancss --level 1 --source-map --source-map-inline-sources --output dist/css/style.min.css dist/css/style.css",
-    "uglify": "uglifyjs src/js/*.js -m -o dist/js/app.js && uglifyjs src/js/*.js -m -c -o dist/js/app.min.js",
-    "serve": "node dev/js/server.js",
-    "watch": "watch 'npm run css-compile & npm run imagemin-all & npm run uglify' ./src"
+    "uglify": "uglifyjs src/js/*.js -m -o dist/js/app.js",
+    "serve": "node src/server.js",
+    "watch": "watch 'npm run css-compile & npm run css-prefix & npm run css-minify & npm run imagemin-all & npm run uglify' ./src"
   },
   "repository": {
     "type": "git",
@@ -24,9 +23,10 @@
   "author": "megane9988",
   "license": "GPL+2.0",
   "homepage": "https://www.m-g-n.me",
-  "dependencies": {
+  "devDependencies": {
     "autoprefixer": "^9.4.9",
     "bootstrap": "^4.3.1",
+    "browser-sync": "^2.26.3",
     "clean-css-cli": "^4.2.1",
     "imagemin-cli": "^4.0.0",
     "imagemin-jpeg-recompress": "^6.0.0",
@@ -40,8 +40,5 @@
     "postcss-cli": "^6.1.2",
     "uglify-js": "^3.4.9",
     "watch": "1.0.2"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.26.3"
   }
 }
