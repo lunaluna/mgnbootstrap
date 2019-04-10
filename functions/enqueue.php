@@ -10,6 +10,8 @@ if ( !is_admin() ) {
 		wp_enqueue_style( 'mgn-style', get_theme_file_uri( '/dist/css/style.css' ) );
 		wp_enqueue_style( 'editor-style', get_theme_file_uri( '/dist/css/editor-style.css' ) );
 
+		wp_enqueue_script( 'popper-js', 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js', array( 'jquery' ), true, true );
+		wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js', array( 'jquery' ), true, true );
 		wp_enqueue_script( 'tile-js', get_theme_file_uri( '/assets/js/vender/jquery.tile.min.js' ), array( 'jquery' ), true, true );
 		wp_enqueue_script( 'ofi-js', get_theme_file_uri( '/assets/js/vender/ofi.min.js' ), array() 'jquery' , true, true );
 		wp_enqueue_script( 'picturefill-js', get_theme_file_uri( '/assets/js/vender/picturefill.min.js' ), array( 'jquery' ), true, true );
