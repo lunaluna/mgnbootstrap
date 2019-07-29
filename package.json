@@ -1,6 +1,6 @@
 {
   "name": "mgn_bootstrap",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "mgnでbootstrapをベースにテーマ作るときはこれをつかうよ！",
   "main": "index.js",
   "scripts": {
@@ -11,7 +11,8 @@
     "css": "npm-run-all -p css:*",
     "uglify": "uglifyjs src/js/*.js -m -o dist/js/app.js",
     "watch:img": "onchange 'src/img' -e '**/*.DS_Store' -- npm run imagemin",
-    "watch:source": "watch 'npm run css & npm run uglify' ./src",
+    "watch:css": "onchange 'src/scss' -e '**/*.DS_Store' -- npm run css",
+    "watch:js": "onchange 'src/js' -e '**/*.DS_Store' -- npm run uglify",
     "watch": "npm-run-all -p watch:*",
     "serve": "node src/server.js"
   },
