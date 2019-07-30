@@ -1,6 +1,6 @@
 {
   "name": "mgn_bootstrap",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "mgnでbootstrapをベースにテーマ作るときはこれをつかうよ！",
   "main": "index.js",
   "scripts": {
@@ -40,7 +40,6 @@
     "onchange": "^6.0.0",
     "postcss-cli": "^6.1.3",
     "stylelint": "^10.1.0",
-    "stylelint-order": "^3.0.1",
     "stylelint-scss": "^3.9.2",
     "uglify-js": "^3.6.0",
     "watch": "1.0.2"

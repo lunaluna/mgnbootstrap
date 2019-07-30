@@ -7,9 +7,8 @@
   "syntax": "scss",
 
   "plugins": [
-    "stylelint-scss",
-    "stylelint-order"
-  ],
+    "stylelint-scss"
+   ],
 
   "rules": {
     "color-hex-case": "lower",
@@ -129,6 +128,7 @@
     "at-rule-semicolon-space-before": "never",
 
     "indentation": 2,
+    "linebreaks": "unix",
     "max-empty-lines": 2,
     "no-eol-whitespace": true,
     "no-extra-semicolons": true,
@@ -140,9 +140,6 @@
     "scss/at-if-closing-brace-newline-after": "always-last-in-chain",
     "scss/at-mixin-parentheses-space-before": "never",
     "scss/dollar-variable-colon-space-after": "always",
-    "scss/dollar-variable-colon-space-before": "never",
-
-
-    "order/properties-alphabetical-order": true
+    "scss/dollar-variable-colon-space-before": "never"
   }
 }
